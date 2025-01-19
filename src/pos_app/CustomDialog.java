@@ -15,6 +15,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// for log out
 public class CustomDialog extends JDialog {
     private int result = JOptionPane.CLOSED_OPTION;
 

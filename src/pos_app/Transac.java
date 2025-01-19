@@ -30,6 +30,8 @@ import java.awt.Insets;
 import java.awt.print.PageFormat;
 import java.awt.print.Paper;
 import java.awt.print.Printable;
+import static java.awt.print.Printable.NO_SUCH_PAGE;
+import static java.awt.print.Printable.PAGE_EXISTS;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.sql.Connection;
@@ -1040,63 +1042,7 @@ public class Transac extends javax.swing.JFrame {
         jpload.jPanelLoader(panel_load, transac.getPanelLoad());  
     }//GEN-LAST:event_backBtnMouseReleased
     
-    
-    
-            
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel MainPanel;
-    private javax.swing.JPanel Sidebar;
-    private javax.swing.JLabel accType;
-    private javax.swing.JLabel accUser;
-    private javax.swing.JButton acctBtn;
-    private javax.swing.JButton addToCartBtn;
-    private javax.swing.JButton backBtn;
-    private javax.swing.JButton cartDelBtn;
-    private javax.swing.JTable cartTable;
-    private javax.swing.JTextField cashInput;
-    private javax.swing.JLabel changeOutput;
-    private javax.swing.JTextField codeSearchBar;
-    private javax.swing.JButton confirmTransactionBtn;
-    private javax.swing.JLabel image;
-    private javax.swing.JButton invenBtn;
-    private javax.swing.JTextArea itemName;
-    private javax.swing.JLabel itemPrice;
-    private javax.swing.JTextField itemSearchBar;
-    private javax.swing.JLabel itemStock;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JLabel logoutBtn;
-    private javax.swing.JPanel panel_load;
-    private javax.swing.JSpinner qtySpinner;
-    private javax.swing.JButton recBtn;
-    private javax.swing.JTextArea receiptArea;
-    private javax.swing.JCheckBox receiptCheckBox;
-    private javax.swing.JScrollPane scrollReceipt;
-    private javax.swing.JLabel totalCost;
-    private javax.swing.JButton transacBtn;
-    private javax.swing.JTable transacInven;
-    private javax.swing.JComboBox<String> typeComboBox;
-    // End of variables declaration//GEN-END:variables
-
-
-        private void populateTableFromDatabase() throws SQLException {
+            private void populateTableFromDatabase() throws SQLException {
                 db.connect();
                 String query = "SELECT ITEM_NAME, ITEM_TYPE, ITEM_ID FROM ITEMS";
                 ResultSet rs = db.executeQuery(query);
@@ -1121,7 +1067,7 @@ public class Transac extends javax.swing.JFrame {
             RowFilter<Object, Object> filter = new RowFilter<Object, Object>() {
 
             @Override
-            public boolean include(Entry<? extends Object, ? extends Object> entry) {
+            public boolean include(RowFilter.Entry<? extends Object, ? extends Object> entry) {
                 String itemType = (String) entry.getValue(1); // Assuming category is in the 2nd column (index 1)
                 if (category.equals("UNCATEGORIZED")) {
                     return true;
@@ -1443,7 +1389,59 @@ public class Transac extends javax.swing.JFrame {
         }
         return false;
     }
-
+    
+            
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MainPanel;
+    private javax.swing.JPanel Sidebar;
+    private javax.swing.JLabel accType;
+    private javax.swing.JLabel accUser;
+    private javax.swing.JButton acctBtn;
+    private javax.swing.JButton addToCartBtn;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JButton cartDelBtn;
+    private javax.swing.JTable cartTable;
+    private javax.swing.JTextField cashInput;
+    private javax.swing.JLabel changeOutput;
+    private javax.swing.JTextField codeSearchBar;
+    private javax.swing.JButton confirmTransactionBtn;
+    private javax.swing.JLabel image;
+    private javax.swing.JButton invenBtn;
+    private javax.swing.JTextArea itemName;
+    private javax.swing.JLabel itemPrice;
+    private javax.swing.JTextField itemSearchBar;
+    private javax.swing.JLabel itemStock;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel logoutBtn;
+    private javax.swing.JPanel panel_load;
+    private javax.swing.JSpinner qtySpinner;
+    private javax.swing.JButton recBtn;
+    private javax.swing.JTextArea receiptArea;
+    private javax.swing.JCheckBox receiptCheckBox;
+    private javax.swing.JScrollPane scrollReceipt;
+    private javax.swing.JLabel totalCost;
+    private javax.swing.JButton transacBtn;
+    private javax.swing.JTable transacInven;
+    private javax.swing.JComboBox<String> typeComboBox;
+    // End of variables declaration//GEN-END:variables
 }
         
 

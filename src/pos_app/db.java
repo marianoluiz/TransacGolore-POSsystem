@@ -19,7 +19,7 @@ import java.sql.SQLException;
 public class db {
     final static String URL = "jdbc:mysql://localhost:3306/pos_db";
     final static String USERNAME = "root";
-    final static String PASSWORD = "";
+    final static String PASSWORD = "4835";
     final static String DRIVER = "com.mysql.cj.jdbc.Driver";
     
     // database connection objects
